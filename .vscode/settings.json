@@ -1,0 +1,11 @@
+{
+  "editor.useIme": true,
+  "editor.legacyIme": false,
+  "files.associations": {
+    "*.cpp": "cpp",
+    "valarray": "cpp",
+    "iostream": "cpp",
+    "random": "cpp",
+    "iosfwd": "cpp"
+  }
+}
