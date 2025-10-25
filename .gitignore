@@ -1,4 +1,39 @@
+# 可执行文件
 *.exe
+*.dll
+*.so
+*.dylib
+
+# 测试输入输出文件
 *.in
 *.out
+*.ans
+
+# 开发环境配置
 .vscode/
+.idea/
+*.swp
+*.swo
+
+# 编译输出
+build/
+dist/
+__pycache__/
+*.pyc
+*.class
+
+# 依赖目录
+node_modules/
+vendor/
+
+# 日志文件
+*.log
+logs/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 环境变量文件
+.env
+.env.local
