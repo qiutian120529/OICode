@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #define ll long long
+#define pii pair<ll, ll> 
 
 using namespace std;
 
@@ -14,14 +15,27 @@ int main(){
     cin >> k[i] >> b[i];
   }
   cin >> q;
-  while(q--){
+  for(int i = 1; i <= q; i++){
     ll x;
     cin >> x;
+    vector<pii> c;
+    for(int j = 1; j <= n; j++){
+      c.push_back({k[j] * x + b[j], j});
+    }
+    sort(c.begin(), c.end());
     ll ans = 0;
-    for(int i = 1; i <= n; i++){
-      for(int j = 1; j <= n; j++){
-        if(i == j) continue;
-        ans = max(ans, 1ll * k[j] * (k[i] * x + b[i]) + b[j]);
+    for(int j = 1; j <= n; j++){
+      if(j != c[0].second){
+        ans = max(ans, k[j] * c[0].first + b[j]);
+      }
+      if(j != c[1].second){
+        ans = max(ans, k[j] * c[1].first + b[j]);
+      }
+      if(j != c[c.size() - 1].second){
+        ans = max(ans, k[j] * c[c.size() - 1].first + b[j]);
+      }
+      if(j != c[c.size() - 2].second){
+        ans = max(ans, k[j] * c[c.size() - 2].first + b[j]);
       }
     }
     cout << ans << "\n";
