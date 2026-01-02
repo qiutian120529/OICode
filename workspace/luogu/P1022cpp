@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#define ll long long
+
+using namespace std;
+
+const int N = 1e5 + 10;
+
+char c, x;
+
+int num, side = 1, sum, p, f = 1; // px = 2, x= 2 / p
+
+int main(){
+  ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+  while(cin >> c){
+    if(isdigit(c)){
+      num = num * 10 + (c - '0');
+    }
+    else if('a' <= c && c <= 'z'){
+      p += num * f * side;
+      num = 0, f = 1;
+    }
+    else{
+      sum += num * f * side;
+      num = 0, f = 1;
+      if(c == '='){
+        side = -1;
+      }
+      if(c == '+'){
+        f = 1;
+      }
+      if(c == '-'){
+        f = -1;
+      }
+    }
+  }
+  sum += num * f * side;
+  cout << x << "=" << fixed << setprecision(3) << sum / p;
+  return 0;
+}
